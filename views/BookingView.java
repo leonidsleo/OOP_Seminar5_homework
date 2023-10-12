@@ -67,4 +67,22 @@ public class BookingView implements View {
         observer.onChangeReservationTable(oldReservation, reservationDate, tableNo, name);
     }
 
+    /**
+     * Просто отменяем бронь, без смены 
+     */
+
+
+    @Override
+    public void showNoReservy(int oldReservation, int reservationId, String name) {
+        if (reservationId >= 0) {
+            System.out.printf("%s. Бронь %s успешно отменена.", name, oldReservation);
+        } else {
+            System.out.println("Не удалось забронировать столик. Попробуйте повторить операцию позже.");
+        }  
+    }
+
+    public void noReservу(int oldReservation, String name) {
+        observer.onNoReservу(oldReservation, name);
+    }
+
 }

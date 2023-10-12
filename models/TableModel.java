@@ -76,4 +76,17 @@ public class TableModel implements Model {
         throw  new RuntimeException("Некорректный номер столика.");
     }
 
+    @Override
+    public int noReservу(int oldReservation, String name) {
+        for (Table table: loadTables()) {
+            for (Reservation reservation: table.getReservations()) {
+                if (oldReservation == reservation.getId()) {
+                    reservation = null;
+                }
+                return reservation.getId();
+            }
+        }
+        throw  new RuntimeException("Некорректный номер столика.");
+    }
+
 }

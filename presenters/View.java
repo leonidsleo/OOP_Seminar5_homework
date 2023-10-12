@@ -37,7 +37,7 @@ public interface View {
 
     /**
      * Клиент нажал на кнопку изменения бронирования
-     * @param oldReservation номер бронирование которое необходимо отменить
+     * @param oldReservation номер бронирование которое необходимо изменить
      */
     void changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name);
 
@@ -46,5 +46,15 @@ public interface View {
      * @param observer наблюдатель
      */
     void setObserver(ViewObserver observer);
+
+    /**
+     * клиент нажал просто отменить бронирование
+     */
+    void noReservу(int oldReservation, String name);
+
+    /**
+     * отобразить отмену бронирования
+     */
+    void showNoReservy(int oldReservation, int reservationId, String name);
 
 }

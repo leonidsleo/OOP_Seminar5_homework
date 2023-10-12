@@ -75,4 +75,23 @@ public class BookingPresenter implements ViewObserver {
             updateUIShowChangeReservationResult(-1, -1, null, -1);
         }
     }
-}
+
+    /**
+     * отобразить отмену бронирования
+     */
+    private void updateNoReservyResult(int oldReservation, int reservationId, String name) {
+        view.showNoReservy(oldReservation, reservationId, name);
+    }
+
+    @Override
+    public void onNoReservу(int oldReservation, String name) {
+        try {
+            int reservationsNo = model.noReservу(oldReservation, name);
+            updateNoReservyResult(oldReservation, reservationsNo, name);
+        }
+        catch (RuntimeException e){{
+            updateNoReservyResult(-1, -1, null);
+        }
+        }
+    }
+}    
